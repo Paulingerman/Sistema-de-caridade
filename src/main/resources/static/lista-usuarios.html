@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+    <link rel="stylesheet" href="/css/lista-usuarios.css">
+</head>
+<body>
+<div class="container">
+    <div class="topo">
+        <div>
+            <h1>Usuários Cadastrados</h1>
+            <p class="subtitulo">Visualize, atualize e exclua usuários cadastrados no sistema.</p>
+        </div>
+
+        <div class="acoes-topo">
+            <a href="/cadastro-usuario.html" class="botao secundario">Novo Usuário</a>
+            <button class="botao primario" onclick="carregarUsuarios()">Atualizar Lista</button>
+        </div>
+    </div>
+
+    <div id="mensagem" class="mensagem" style="display: none;"></div>
+
+    <div class="tabela-wrapper">
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Prioridade</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+            <tbody id="tabela-usuarios">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="/js/lista-usuarios.js"></script>
+</body>
+</html>

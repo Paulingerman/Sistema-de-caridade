@@ -20,6 +20,8 @@
 
     <properties>
         <java.version>21</java.version>
+        <!-- CVE-2025-49146: Force PostgreSQL JDBC 42.7.7+ to address secure authentication fallback vulnerability -->
+        <postgresql.version>42.7.7</postgresql.version>
     </properties>
 
     <dependencies>
@@ -46,6 +48,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
             <scope>runtime</scope>
         </dependency>
 

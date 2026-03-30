@@ -1,0 +1,5 @@
+configurations {
+    compile
+}.collect { it.dependencies }.flatMap { it }*.each {
+    println it.group + ':' + it.name + ':' + it.version
+}

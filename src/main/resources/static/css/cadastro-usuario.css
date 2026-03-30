@@ -70,3 +70,25 @@ button:hover {
     background: #dcfce7;
     color: #166534;
 }
+
+.acoes-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.link-listagem {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: #e5e7eb;
+    color: #111827;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.link-listagem:hover {
+    background: #d1d5db;
+}
