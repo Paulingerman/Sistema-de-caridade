@@ -41,15 +41,6 @@ select {
     border: 1px solid #ccc;
 }
 
-button {
-    margin-top: 20px;
-    border: none;
-    background: #2563eb;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-}
-
 button:hover {
     background: #1d4ed8;
 }

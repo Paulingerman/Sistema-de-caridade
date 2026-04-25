@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Beneficiários</title>
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/lista-beneficiarios.css">
+</head>
+<body>
+<div class="page-shell">
+    <div id="app-navbar"></div>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="topo">
+                <div>
+                    <h1>Beneficiários Cadastrados</h1>
+                    <p class="subtitulo">Visualize os beneficiários, suas prioridades e inicie solicitações.</p>
+                </div>
+
+                <div class="acoes-topo">
+                    <a href="/cadastro-beneficiario.html" class="botao secundario">Novo Beneficiário</a>
+                    <button class="botao primario" type="button" onclick="carregarBeneficiarios()">Atualizar Lista</button>
+                </div>
+            </div>
+
+            <div class="barra-filtros">
+                <input
+                        type="text"
+                        id="campo-busca"
+                        placeholder="Buscar por nome, email, telefone, endereço, tipo ou prioridade..."
+                        oninput="filtrarBeneficiarios()"
+                >
+            </div>
+
+            <div id="mensagem" class="mensagem" style="display: none;"></div>
+
+            <div class="tabela-wrapper">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>Email</th>
+                        <th>Endereço</th>
+                        <th>Tipo</th>
+                        <th>Prioridade</th>
+                        <th>Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody id="tabela-beneficiarios"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script src="/js/app.js"></script>
+<script src="/js/lista-beneficiarios.js"></script>
+<script>
+    renderNavbar("beneficiarios-lista");
+</script>
+</body>
+</html>

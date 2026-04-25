@@ -40,6 +40,19 @@ h1 {
     flex-wrap: wrap;
 }
 
+.barra-filtros {
+    margin-bottom: 20px;
+}
+
+.barra-filtros input {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
 .botao {
     display: inline-block;
     text-decoration: none;
@@ -135,15 +148,27 @@ tbody tr:hover {
     flex-wrap: wrap;
 }
 
+.botao-editar,
+.botao-excluir {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.botao-editar {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.botao-editar:hover {
+    background: #fde68a;
+}
+
 .botao-excluir {
     background: #dc2626;
     color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 14px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.2s ease;
 }
 
 .botao-excluir:hover {
@@ -172,4 +197,73 @@ tbody tr:hover {
 .mensagem.erro {
     background: #fee2e2;
     color: #991b1b;
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 24, 39, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-overlay.oculto {
+    display: none;
+}
+
+.modal {
+    width: 100%;
+    max-width: 520px;
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+}
+
+.modal-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.modal-topo h2 {
+    margin: 0;
+}
+
+.botao-fechar {
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.campo {
+    margin-bottom: 16px;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.campo input,
+.campo select {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.modal-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
 }

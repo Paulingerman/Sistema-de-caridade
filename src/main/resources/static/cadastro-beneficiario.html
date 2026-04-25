@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Beneficiário</title>
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/cadastro-beneficiario.css">
+</head>
+<body>
+<div class="page-shell">
+    <div id="app-navbar"></div>
+
+    <main class="page-content">
+        <div class="container">
+            <h1>Cadastro de Beneficiário</h1>
+            <p class="subtitulo-form">
+                Cadastre famílias, ONGs, escolas, abrigos e outras instituições que receberão doações.
+            </p>
+
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Digite o nome">
+
+            <label for="telefone">Telefone</label>
+            <input type="text" id="telefone" placeholder="Digite o telefone">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Digite o email">
+
+            <label for="endereco">Endereço</label>
+            <input type="text" id="endereco" placeholder="Digite o endereço">
+
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" placeholder="Digite a senha">
+
+            <label for="tipoBeneficiario">Tipo de Beneficiário</label>
+            <select id="tipoBeneficiario">
+                <option value="FAMILIA">FAMÍLIA</option>
+                <option value="ONG">ONG</option>
+                <option value="ESCOLA">ESCOLA</option>
+                <option value="ABRIGO">ABRIGO</option>
+                <option value="COMUNIDADE">COMUNIDADE</option>
+                <option value="INSTITUICAO">INSTITUIÇÃO</option>
+            </select>
+
+            <label for="nivelPrioridade">Nível de Prioridade</label>
+            <select id="nivelPrioridade">
+                <option value="BAIXA">BAIXA</option>
+                <option value="MEDIA">MÉDIA</option>
+                <option value="ALTA">ALTA</option>
+                <option value="URGENTE">URGENTE</option>
+                <option value="CRITICA">CRÍTICA</option>
+            </select>
+
+            <div class="acoes-formulario">
+                <button type="button" onclick="cadastrarBeneficiario()">Cadastrar Beneficiário</button>
+                <a href="/lista-beneficiarios.html" class="link-listagem">Ver beneficiários cadastrados</a>
+            </div>
+
+            <div id="resultado" class="resultado" style="display:none;"></div>
+        </div>
+    </main>
+</div>
+
+<script src="/js/app.js"></script>
+<script src="/js/cadastro-beneficiario.js"></script>
+<script>
+    renderNavbar("beneficiarios");
+</script>
+</body>
+</html>

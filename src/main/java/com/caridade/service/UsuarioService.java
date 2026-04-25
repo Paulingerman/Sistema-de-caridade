@@ -14,5 +14,7 @@ public interface UsuarioService {
 
     UsuarioResponseDTO buscarPorId(UUID id);
 
+    UsuarioResponseDTO atualizar(UUID id, UsuarioRequestDTO request);
+
     void deletar(UUID id);
 }

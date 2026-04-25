@@ -1,0 +1,28 @@
+[ {
+  "id" : "49ee082f-7a9d-4431-9b51-2440a55786c9",
+  "nome" : "Paulo Germano",
+  "telefone" : "79999232334",
+  "email" : "Paulogo9009@gmail.com",
+  "endereco" : "Rua Jose Olívio Nascimento ",
+  "senha" : "123456",
+  "prioridade" : "URGENTE",
+  "perfil" : "ADMIN"
+}, {
+  "id" : "2affa0da-454d-45a2-9cbd-f4b051e8ce03",
+  "nome" : "cezar mendonça santana junior",
+  "telefone" : "79993454667",
+  "email" : "cezarMENDONZA12@gmail.com",
+  "endereco" : "rua mendonza melo dias",
+  "senha" : "123456",
+  "prioridade" : "URGENTE",
+  "perfil" : "BENEFICIARIO"
+}, {
+  "id" : "e8138baa-05cf-45d9-b6af-3338d383ccd4",
+  "nome" : "Jorge Mendonça Barros Torres",
+  "telefone" : "79999235480",
+  "email" : "jorgin57BR@gmail.com",
+  "endereco" : "Rua Alagoas Dantas",
+  "senha" : "123456",
+  "prioridade" : "MEDIA",
+  "perfil" : "DOADOR"
+} ]

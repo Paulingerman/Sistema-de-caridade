@@ -1,5 +1,6 @@
 package com.caridade.dto.response;
 
+import com.caridade.entity.PerfilUsuario;
 import com.caridade.entity.PrioridadeUsuario;
 
 import java.util.UUID;
@@ -7,7 +8,10 @@ import java.util.UUID;
 public record UsuarioResponseDTO(
         UUID id,
         String nome,
+        String telefone,
         String email,
-        PrioridadeUsuario prioridade
+        String endereco,
+        PrioridadeUsuario prioridade,
+        PerfilUsuario perfil
 ) {
 }

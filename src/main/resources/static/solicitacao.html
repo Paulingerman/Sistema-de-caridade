@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitação de Doação</title>
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/solicitacao.css">
+</head>
+<body>
+<div class="page-shell">
+    <div id="app-navbar"></div>
+
+    <main class="page-content">
+        <section class="solicitacao-wrapper">
+            <div class="solicitacao-header">
+                <span class="solicitacao-tag">Solicitações</span>
+                <h1>Nova Solicitação</h1>
+                <p>
+                    Registre um pedido vinculando um beneficiário a um item disponível.
+                </p>
+            </div>
+
+            <div class="solicitacao-card">
+                <div class="form-grid">
+                    <div class="form-group full">
+                        <label for="beneficiario">Beneficiário</label>
+                        <select id="beneficiario"></select>
+                    </div>
+
+                    <div id="beneficiario-info" class="info-card hidden"></div>
+
+                    <div class="form-group full">
+                        <label for="item">Item disponível</label>
+                        <select id="item"></select>
+                    </div>
+
+                    <div id="item-info" class="info-card hidden"></div>
+
+                    <div class="form-group">
+                        <label for="quantidadeSolicitada">Quantidade solicitada</label>
+                        <input type="number" id="quantidadeSolicitada" min="1" placeholder="Ex.: 2">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="statusPrevisto">Status previsto</label>
+                        <input type="text" id="statusPrevisto" value="Aguardando validação" disabled>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="justificativa">Justificativa</label>
+                        <textarea id="justificativa" rows="5" placeholder="Descreva a necessidade do pedido"></textarea>
+                    </div>
+                </div>
+
+                <div class="solicitacao-actions">
+                    <button type="button" class="button-primary" onclick="criarSolicitacao()">
+                        Registrar Solicitação
+                    </button>
+                    <a href="/pedidos.html" class="button button-secondary">
+                        Ver pedidos
+                    </a>
+                </div>
+
+                <div id="mensagem-solicitacao" class="message-box"></div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="/js/app.js"></script>
+<script src="/js/solicitacao.js"></script>
+<script>
+    renderNavbar("solicitacao");
+</script>
+</body>
+</html>

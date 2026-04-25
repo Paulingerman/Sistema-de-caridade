@@ -35,3 +35,7 @@ build/
 .jdk/ 
 .idea/ 
 target/ 
+
+jdk-21.0.10+7/
+.jdk/
+target/

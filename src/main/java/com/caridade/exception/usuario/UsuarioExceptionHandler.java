@@ -26,6 +26,18 @@ public class UsuarioExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(erro);
     }
 
+    @ExceptionHandler(UsuarioJaExisteException.class)
+    public ResponseEntity<UsuarioErroResponse> handleUsuarioJaExiste(UsuarioJaExisteException ex) {
+        UsuarioErroResponse erro = new UsuarioErroResponse(
+                LocalDateTime.now(),
+                HttpStatus.CONFLICT.value(),
+                "Usuário já existe",
+                ex.getMessage()
+        );
+
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(erro);
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, String>> handleValidacao(MethodArgumentNotValidException ex) {
         Map<String, String> erros = new HashMap<>();
@@ -36,16 +48,4 @@ public class UsuarioExceptionHandler {
 
         return ResponseEntity.badRequest().body(erros);
     }
-
-    @ExceptionHandler(UsuarioJaExisteException.class)
-    public ResponseEntity<UsuarioErroResponse> handleUsuarioJaExiste(UsuarioJaExisteException ex) {
-    UsuarioErroResponse erro = new UsuarioErroResponse(
-            LocalDateTime.now(),
-            HttpStatus.CONFLICT.value(),
-            "Usuário já existe",
-            ex.getMessage()
-    );
-
-        return ResponseEntity.status(HttpStatus.CONFLICT).body(erro);
-    }   
 }

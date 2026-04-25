@@ -1,0 +1,99 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 620px;
+    background: white;
+    margin: auto;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitulo-form {
+    text-align: center;
+    color: #64748b;
+    margin-bottom: 24px;
+}
+
+label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input,
+select,
+button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+input,
+select {
+    border: 1px solid #cbd5e1;
+}
+
+button {
+    border: none;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+.resultado {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 10px;
+    white-space: pre-wrap;
+}
+
+.erro {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.sucesso {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.acoes-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.link-listagem {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    background: #e5e7eb;
+    color: #111827;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.link-listagem:hover {
+    background: #d1d5db;
+}

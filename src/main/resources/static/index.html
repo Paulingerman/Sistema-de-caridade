@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel - Rede Solidária</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+<div class="page-shell">
+    <div id="app-navbar"></div>
+
+    <main class="page-content">
+        <section class="hero-card">
+            <div class="hero-badge">Sistema em desenvolvimento</div>
+            <h1 class="hero-title">Painel da Rede Solidária</h1>
+            <p class="hero-text">
+                Este painel centraliza o acesso aos módulos do sistema de doação e reaproveitamento.
+                A partir daqui, você pode navegar entre usuários, beneficiários, itens, solicitações e login.
+            </p>
+
+            <div class="hero-actions">
+                <a href="/cadastro-usuario.html" class="button button-primary">Cadastrar Usuário</a>
+                <a href="/lista-usuarios.html" class="button button-secondary">Gerenciar Usuários</a>
+                <a href="/login.html" class="button button-secondary">Ir para Login</a>
+            </div>
+        </section>
+
+        <section class="dashboard-grid">
+            <div class="dashboard-card">
+                <span class="dashboard-label">Módulo</span>
+                <h2>Usuários</h2>
+                <p>Cadastro, listagem, edição e exclusão de usuários do sistema.</p>
+                <a href="/lista-usuarios.html" class="card-link">Abrir módulo →</a>
+            </div>
+
+            <div class="dashboard-card">
+                <span class="dashboard-label">Módulo</span>
+                <h2>Beneficiários</h2>
+                <p>Área preparada para cadastro, priorização e atendimento dos beneficiários.</p>
+                <span class="card-soon">Em preparação</span>
+            </div>
+
+            <div class="dashboard-card">
+                <span class="dashboard-label">Módulo</span>
+                <h2>Itens de Doação</h2>
+                <p>Controle de itens disponíveis, status e quantidade de doações cadastradas.</p>
+                <span class="card-soon">Backend pronto</span>
+            </div>
+
+            <div class="dashboard-card">
+                <span class="dashboard-label">Módulo</span>
+                <h2>Solicitações</h2>
+                <p>Fluxo de pedidos, validação de disponibilidade e conclusão de entregas.</p>
+                <span class="card-soon">Backend pronto</span>
+            </div>
+
+            <div class="dashboard-card">
+                <span class="dashboard-label">Acesso</span>
+                <h2>Login</h2>
+                <p>Tela visual pronta para a próxima etapa de autenticação do sistema.</p>
+                <a href="/login.html" class="card-link">Abrir login →</a>
+            </div>
+
+            <div class="dashboard-card">
+                <span class="dashboard-label">Próximo passo</span>
+                <h2>Navegação</h2>
+                <p>Base visual preparada para ligar todas as telas em uma experiência única.</p>
+                <span class="card-soon">Em evolução</span>
+            </div>
+        </section>
+    </main>
+</div>
+
+<script src="/js/app.js"></script>
+<script>
+    renderNavbar("painel");
+</script>
+</body>
+</html>

@@ -1,15 +1,21 @@
 async function cadastrarUsuario() {
     const nome = document.getElementById("nome").value;
+    const telefone = document.getElementById("telefone").value;
     const email = document.getElementById("email").value;
+    const endereco = document.getElementById("endereco").value;
     const senha = document.getElementById("senha").value;
     const prioridade = document.getElementById("prioridade").value;
+    const perfil = document.getElementById("perfil").value;
     const resultado = document.getElementById("resultado");
 
     const usuario = {
         nome,
+        telefone,
         email,
+        endereco,
         senha,
-        prioridade
+        prioridade,
+        perfil
     };
 
     try {
@@ -47,7 +53,10 @@ async function cadastrarUsuario() {
 
 function limparFormulario() {
     document.getElementById("nome").value = "";
+    document.getElementById("telefone").value = "";
     document.getElementById("email").value = "";
+    document.getElementById("endereco").value = "";
     document.getElementById("senha").value = "";
     document.getElementById("prioridade").value = "BAIXA";
+    document.getElementById("perfil").value = "ADMIN";
 }

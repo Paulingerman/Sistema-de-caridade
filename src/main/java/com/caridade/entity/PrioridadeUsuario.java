@@ -6,4 +6,4 @@ public enum PrioridadeUsuario {
     ALTA,
     URGENTE,
     CRITICA
-    }
+}

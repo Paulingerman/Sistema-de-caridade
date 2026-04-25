@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Rede Solidária</title>
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+<div class="login-shell">
+    <section class="login-side">
+        <span class="badge badge-soft">Acesso ao sistema</span>
+        <div style="height: 18px;"></div>
+        <h1>Entre para gerenciar a Rede Solidária</h1>
+        <p>
+            Esta tela já deixa a autenticação preparada visualmente. No próximo passo, podemos ligar este formulário
+            ao fluxo de login real do sistema, validando o usuário cadastrado e controlando o acesso às páginas.
+        </p>
+    </section>
+
+    <section class="login-panel">
+        <div class="login-card">
+            <h2>Login</h2>
+            <p>Preencha suas credenciais para entrar.</p>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Digite seu email">
+            </div>
+
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="Digite sua senha">
+            </div>
+
+            <div class="login-actions">
+                <button type="button" class="button-primary" onclick="realizarLogin()">Entrar</button>
+                <a href="/index.html" class="button button-secondary" style="text-align:center;">Voltar ao painel</a>
+            </div>
+
+            <div id="login-message" class="message-box"></div>
+
+            <div class="login-helper">
+                <strong>Observação:</strong> esta tela está preparada para a próxima etapa de autenticação.
+                Assim que você quiser, eu conecto o formulário ao backend para validar email e senha.
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="/js/login.js"></script>
+</body>
+</html>

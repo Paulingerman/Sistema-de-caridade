@@ -34,6 +34,11 @@ public class UsuarioController {
         return usuarioService.buscarPorId(id);
     }
 
+    @PutMapping("/{id}")
+    public UsuarioResponseDTO atualizar(@PathVariable UUID id, @RequestBody @Valid UsuarioRequestDTO request) {
+        return usuarioService.atualizar(id, request);
+    }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletar(@PathVariable UUID id) {
