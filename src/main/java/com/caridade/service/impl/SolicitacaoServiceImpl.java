@@ -2,6 +2,7 @@ package com.caridade.service.impl;
 
 import com.caridade.dto.request.AtualizarStatusItemRequestDTO;
 import com.caridade.dto.request.SolicitacaoRequestDTO;
+import com.caridade.dto.response.BeneficiarioResponseDTO;
 import com.caridade.dto.response.ItemDoacaoResponseDTO;
 import com.caridade.dto.response.SolicitacaoResponseDTO;
 import com.caridade.entity.Solicitacao;
@@ -10,6 +11,8 @@ import com.caridade.entity.StatusSolicitacao;
 import com.caridade.exception.solicitacao.SolicitacaoNaoEncontradaException;
 import com.caridade.exception.solicitacao.SolicitacaoOperacaoInvalidaException;
 import com.caridade.service.BeneficiarioService;
+import com.caridade.service.DoacaoEfetivadaService;
+import com.caridade.service.DoadorService;
 import com.caridade.service.ItemDoacaoService;
 import com.caridade.service.JsonDataStoreService;
 import com.caridade.service.SolicitacaoService;
@@ -28,16 +31,22 @@ public class SolicitacaoServiceImpl implements SolicitacaoService {
 
     private final ItemDoacaoService itemDoacaoService;
     private final BeneficiarioService beneficiarioService;
+    private final DoadorService doadorService;
+    private final DoacaoEfetivadaService doacaoEfetivadaService;
     private final JsonDataStoreService jsonDataStoreService;
     private final List<Solicitacao> solicitacoes;
 
     public SolicitacaoServiceImpl(
             ItemDoacaoService itemDoacaoService,
             BeneficiarioService beneficiarioService,
+            DoadorService doadorService,
+            DoacaoEfetivadaService doacaoEfetivadaService,
             JsonDataStoreService jsonDataStoreService
     ) {
         this.itemDoacaoService = itemDoacaoService;
         this.beneficiarioService = beneficiarioService;
+        this.doadorService = doadorService;
+        this.doacaoEfetivadaService = doacaoEfetivadaService;
         this.jsonDataStoreService = jsonDataStoreService;
         this.solicitacoes = new ArrayList<>(
                 jsonDataStoreService.readList(FILE_NAME, new TypeReference<List<Solicitacao>>() {})
@@ -136,6 +145,9 @@ public class SolicitacaoServiceImpl implements SolicitacaoService {
             throw new SolicitacaoOperacaoInvalidaException("Apenas solicitações aprovadas podem ser concluídas");
         }
 
+        ItemDoacaoResponseDTO item = itemDoacaoService.buscarPorId(solicitacao.getItemId());
+        BeneficiarioResponseDTO beneficiario = beneficiarioService.buscarPorId(solicitacao.getBeneficiarioId());
+
         itemDoacaoService.baixarQuantidade(
                 solicitacao.getItemId(),
                 solicitacao.getQuantidadeSolicitada()
@@ -143,10 +155,37 @@ public class SolicitacaoServiceImpl implements SolicitacaoService {
 
         solicitacao.setStatus(StatusSolicitacao.CONCLUIDA);
         solicitacao.setObservacao("Solicitação concluída e estoque atualizado");
-
         persistir();
 
+        // Resolver nome do doador de forma segura
+        UUID doadorId = item.doadorId();
+        String nomeDoador = resolverNomeDoador(doadorId);
+
+        doacaoEfetivadaService.registrar(
+                solicitacao.getId(),
+                item.id(),
+                doadorId,
+                beneficiario.id(),
+                solicitacao.getQuantidadeSolicitada(),
+                item.nomeItem(),
+                item.categoria() != null ? item.categoria().name() : null,
+                nomeDoador,
+                beneficiario.nome(),
+                "Doação concluída via solicitação #" + solicitacao.getId()
+        );
+
         return paraResponseDTO(solicitacao);
+    }
+
+    private String resolverNomeDoador(UUID doadorId) {
+        if (doadorId == null) {
+            return "Doador não identificado";
+        }
+        try {
+            return doadorService.buscarPorId(doadorId).getNome();
+        } catch (Exception e) {
+            return "Doador não encontrado (id: " + doadorId + ")";
+        }
     }
 
     private Solicitacao buscarEntidadePorId(UUID id) {
