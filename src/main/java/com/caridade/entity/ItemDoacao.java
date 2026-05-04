@@ -15,6 +15,7 @@ import java.util.UUID;
 public class ItemDoacao {
 
     private UUID id;
+    private UUID doadorId;
     private String nomeItem;
     private CategoriaItemDoacao categoria;
     private String descricao;

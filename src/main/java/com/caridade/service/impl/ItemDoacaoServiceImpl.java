@@ -37,6 +37,7 @@ public class ItemDoacaoServiceImpl implements ItemDoacaoService {
     public ItemDoacaoResponseDTO criar(ItemDoacaoRequestDTO request) {
         ItemDoacao item = ItemDoacao.builder()
                 .id(UUID.randomUUID())
+                .doadorId(request.doadorId())
                 .nomeItem(request.nomeItem())
                 .categoria(request.categoria())
                 .descricao(request.descricao())
@@ -80,6 +81,7 @@ public class ItemDoacaoServiceImpl implements ItemDoacaoService {
     public ItemDoacaoResponseDTO atualizar(UUID id, ItemDoacaoRequestDTO request) {
         ItemDoacao item = buscarEntidadePorId(id);
 
+        item.setDoadorId(request.doadorId());
         item.setNomeItem(request.nomeItem());
         item.setCategoria(request.categoria());
         item.setDescricao(request.descricao());
@@ -143,6 +145,7 @@ public class ItemDoacaoServiceImpl implements ItemDoacaoService {
     private ItemDoacaoResponseDTO paraResponseDTO(ItemDoacao item) {
         return new ItemDoacaoResponseDTO(
                 item.getId(),
+                item.getDoadorId(),
                 item.getNomeItem(),
                 item.getCategoria(),
                 item.getDescricao(),

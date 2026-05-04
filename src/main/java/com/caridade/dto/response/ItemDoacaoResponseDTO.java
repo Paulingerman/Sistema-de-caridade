@@ -9,6 +9,7 @@ import java.util.UUID;
 
 public record ItemDoacaoResponseDTO(
         UUID id,
+        UUID doadorId,
         String nomeItem,
         CategoriaItemDoacao categoria,
         String descricao,
